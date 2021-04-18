@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Medium_Selection"
+    android:id="@+id/medium_selection">
+
+
+    <LinearLayout
+        android:id="@+id/Book_Recommendation"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="179dp"
+            android:layout_weight="1"
+            android:padding="4dp"
+            android:src="@drawable/book" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/recommend_book_button"
+            android:text="@string/recommend" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/Movie_Recommend"
+        app:layout_constraintTop_toBottomOf="@id/Book_Recommendation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="162dp"
+            android:layout_weight="1"
+            android:padding="4dp"
+            android:src="@drawable/movie" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/recommend_movie_button"
+            android:text="@string/recommend" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/TV_Recommend"
+        app:layout_constraintTop_toBottomOf="@id/Movie_Recommend"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/tv"
+            android:padding="4dp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/recommend_tv_button"
+            android:text="@string/recommend" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

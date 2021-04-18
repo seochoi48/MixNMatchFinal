@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Genre_Selection">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:id="@+id/genre_selection_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Please select the genres you are interested in!"
+        android:textColor="#070707"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <CheckBox
+        android:id="@+id/Action_check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Action"
+        app:layout_constraintEnd_toStartOf="@+id/Animation_check"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/genre_selection_text" />
+
+    <CheckBox
+        android:id="@+id/Animation_check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Animation"
+        app:layout_constraintEnd_toStartOf="@+id/Comedy_check"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/Action_check"
+        app:layout_constraintTop_toBottomOf="@+id/genre_selection_text" />
+
+    <CheckBox
+        android:id="@+id/Comedy_check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Comedy"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/Animation_check"
+        app:layout_constraintTop_toBottomOf="@+id/genre_selection_text" />
+
+    <CheckBox
+        android:id="@+id/Drama_check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="32dp"
+        android:text="Drama"
+        app:layout_constraintEnd_toStartOf="@+id/Fantasy_check"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Action_check" />
+
+    <CheckBox
+        android:id="@+id/Fantasy_check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="32dp"
+        android:text="Fantasy"
+        app:layout_constraintEnd_toStartOf="@+id/Historical_check"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/Drama_check"
+        app:layout_constraintTop_toBottomOf="@+id/Animation_check" />
+
+    <CheckBox
+        android:id="@+id/Historical_check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="32dp"
+        android:text="Historical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/Fantasy_check"
+        app:layout_constraintTop_toBottomOf="@+id/Comedy_check" />
+
+    <CheckBox
+        android:id="@+id/Horror_check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Horror"
+        app:layout_constraintEnd_toStartOf="@+id/Romance_check"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Drama_check" />
+
+    <CheckBox
+        android:id="@+id/Romance_check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Romance"
+        app:layout_constraintEnd_toStartOf="@+id/Sci_Fi_check"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/Horror_check"
+        app:layout_constraintTop_toBottomOf="@+id/Fantasy_check" />
+
+    <CheckBox
+        android:id="@+id/Sci_Fi_check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="21dp"
+        android:text="Sci-Fi"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/Romance_check"
+        app:layout_constraintTop_toBottomOf="@+id/Historical_check" />
+
+    <CheckBox
+        android:id="@+id/Thriller_check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Thriller"
+        app:layout_constraintEnd_toStartOf="@+id/Western_check"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Horror_check" />
+
+    <CheckBox
+        android:id="@+id/Western_check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Western"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/Thriller_check"
+        app:layout_constraintTop_toBottomOf="@+id/Sci_Fi_check" />
+
+    <Button
+        android:id="@+id/Clear_all"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        android:text="Clear"
+        app:layout_constraintEnd_toStartOf="@+id/Confirm_genre"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Thriller_check" />
+
+    <Button
+        android:id="@+id/Confirm_genre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        android:text="Confirm"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/Clear_all"
+        app:layout_constraintTop_toBottomOf="@+id/Western_check" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

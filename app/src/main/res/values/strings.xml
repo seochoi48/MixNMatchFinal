@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">MixNMatchFinal</string>
+    <string name="recommend">Recommend Me</string>
+    <string name="chose_book">You chose book</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
