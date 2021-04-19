@@ -4,9 +4,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
 class MainActivity : AppCompatActivity(), Medium_Selection.Callbacks {
-    private lateinit var book: Book
-    private lateinit var movie: Movie
-    private lateinit var tv: TV
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,16 +17,12 @@ class MainActivity : AppCompatActivity(), Medium_Selection.Callbacks {
                 .add(R.id.fragment_container, fragment)
                 .commit()
         }
-        book = Book()
-        movie = Movie()
-        tv = TV()
     }
 
     override fun onMediumSelected(string: String) {
         when (string) {
             "book" -> {
-                val fragment = Genre_Selection()
-                book.isChosen = true
+                val fragment = GenreSelection.newInstance("book")
                 supportFragmentManager
                     .beginTransaction()
                     .replace(R.id.fragment_container, fragment)
@@ -37,8 +30,7 @@ class MainActivity : AppCompatActivity(), Medium_Selection.Callbacks {
                     .commit()
             }
             "movie" -> {
-                val fragment = Genre_Selection()
-                movie.isChosen = true
+                val fragment = GenreSelection.newInstance("movie")
                 supportFragmentManager
                     .beginTransaction()
                     .replace(R.id.fragment_container, fragment)
@@ -46,8 +38,7 @@ class MainActivity : AppCompatActivity(), Medium_Selection.Callbacks {
                     .commit()
             }
             "tv" -> {
-                val fragment = Genre_Selection()
-                tv.isChosen = true
+                val fragment = GenreSelection.newInstance("tv")
                 supportFragmentManager
                     .beginTransaction()
                     .replace(R.id.fragment_container, fragment)

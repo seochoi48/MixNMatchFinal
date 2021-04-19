@@ -13,10 +13,10 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 
 
-class Genre_Selection : Fragment() {
-    private lateinit var book: Book
-    private lateinit var movie: Movie
-    private lateinit var tv: TV
+class GenreSelection : Fragment() {
+    lateinit var book: Book
+    lateinit var movie: Movie
+    lateinit var tv: TV
     private lateinit var actionCheckBox: CheckBox
     private lateinit var animationCheckBox: CheckBox
     private lateinit var comedyCheckBox: CheckBox
@@ -37,7 +37,7 @@ class Genre_Selection : Fragment() {
         book = Book()
         movie = Movie()
         tv = TV()
-        mediumSelected = ""
+//        mediumSelected = ""
     }
 
     override fun onCreateView(
@@ -65,13 +65,13 @@ class Genre_Selection : Fragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        arguments?.getString("Which medium pressed")?.let {
+        arguments?.getString("medium")?.let {
             mediumSelected = it
         }
     }
 
-    override fun onStart() {
-        super.onStart()
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         when (mediumSelected) {
             "book" -> {
                 Toast.makeText(context, R.string.chose_book, Toast.LENGTH_LONG).show()
@@ -291,8 +291,17 @@ class Genre_Selection : Fragment() {
     }
 
     companion object {
-        fun newInstance(): Genre_Selection {
-            return Genre_Selection()
+        fun newInstance(): GenreSelection {
+            return GenreSelection()
+        }
+
+        fun newInstance(myString: String): GenreSelection {
+            val args = Bundle().apply {
+                putString("medium", myString)
+            }
+            return GenreSelection().apply{
+                arguments = args
+            }
         }
     }
 }

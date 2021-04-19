@@ -8,9 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
+import com.bignerdranch.android.mixnmatchfinal.Medium_Selection as Medium_Selection1
 
 
-private const val MEDIUM_PRESSED = "medium"
+
 
 class Medium_Selection : Fragment() {
     private lateinit var book: Book
@@ -51,21 +52,19 @@ class Medium_Selection : Fragment() {
 
         recommendbook.setOnClickListener {
             mediumPressed = "book"
-            newInstance(mediumPressed)
             callbacks?.onMediumSelected(mediumPressed)
         }
 
         recommendmovie.setOnClickListener {
             mediumPressed = "movie"
-            newInstance(mediumPressed)
             callbacks?.onMediumSelected(mediumPressed)
         }
 
         recommendTV.setOnClickListener {
             mediumPressed = "tv"
-            newInstance(mediumPressed)
             callbacks?.onMediumSelected(mediumPressed)
         }
+
 
         return view
 
@@ -80,16 +79,9 @@ class Medium_Selection : Fragment() {
 
 
     companion object {
-        fun newInstance(): Medium_Selection {
-           return Medium_Selection()
+        fun newInstance(): com.bignerdranch.android.mixnmatchfinal.Medium_Selection{
+           return com.bignerdranch.android.mixnmatchfinal.Medium_Selection()
         }
-
-        fun newInstance(myString: String) = Medium_Selection().apply {
-            arguments = Bundle().apply {
-                putString("Which medium pressed", myString)
-            }
-        }
-
     }
 
 

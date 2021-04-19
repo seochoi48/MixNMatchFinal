@@ -18,4 +18,6 @@ data class Book (val id: UUID = UUID.randomUUID(),
     var isThriller = false
     var isWestern = false
     var isChosen = false
+
+
 }
