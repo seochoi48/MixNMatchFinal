@@ -31,6 +31,7 @@ class GenreSelection : Fragment() {
     private lateinit var clearButton: Button
     private lateinit var confirmButton: Button
     private lateinit var mediumSelected: String
+    lateinit var bookPasser: passOnData
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -68,6 +69,7 @@ class GenreSelection : Fragment() {
         arguments?.getString("medium")?.let {
             mediumSelected = it
         }
+        bookPasser = context as passOnData
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -142,6 +144,9 @@ class GenreSelection : Fragment() {
                     book.isComedy = false
                     book.isAction = false
                     book.isDrama = false
+                }
+                confirmButton.setOnClickListener {
+                    passBook(book)
                 }
             }
             "movie" -> {
@@ -288,6 +293,11 @@ class GenreSelection : Fragment() {
             }
 
         }
+    }
+
+    //Passes the instantized data to the interface
+    fun passBook(data: Book) {
+        bookPasser.bookPass(data)
     }
 
     companion object {

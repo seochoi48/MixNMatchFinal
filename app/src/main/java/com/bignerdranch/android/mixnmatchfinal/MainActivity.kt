@@ -3,7 +3,9 @@ package com.bignerdranch.android.mixnmatchfinal
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
-class MainActivity : AppCompatActivity(), Medium_Selection.Callbacks {
+class MainActivity : AppCompatActivity(), Medium_Selection.Callbacks, passOnData {
+
+    private lateinit var book : Book
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,6 +21,7 @@ class MainActivity : AppCompatActivity(), Medium_Selection.Callbacks {
         }
     }
 
+    //replaces the fragment to instantized Genre selection with the correct medium instantizer
     override fun onMediumSelected(string: String) {
         when (string) {
             "book" -> {
@@ -47,6 +50,11 @@ class MainActivity : AppCompatActivity(), Medium_Selection.Callbacks {
             }
         }
 
+    }
+
+    //sets the book
+    override fun bookPass(data: Book) {
+        book = data
     }
 
 }
