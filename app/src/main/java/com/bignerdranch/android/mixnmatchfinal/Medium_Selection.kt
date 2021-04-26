@@ -14,9 +14,6 @@ import com.bignerdranch.android.mixnmatchfinal.Medium_Selection as Medium_Select
 
 
 class Medium_Selection : Fragment() {
-    private lateinit var book: Book
-    private lateinit var movie: Movie
-    private lateinit var tv: TV
     private lateinit var recommendbook: Button
     private lateinit var recommendmovie: Button
     private lateinit var recommendTV: Button
@@ -30,9 +27,6 @@ class Medium_Selection : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        book=Book()
-        movie=Movie()
-        tv=TV()
     }
 
     override fun onAttach(context: Context) {

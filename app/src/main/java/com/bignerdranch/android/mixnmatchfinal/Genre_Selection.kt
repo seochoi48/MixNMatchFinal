@@ -32,13 +32,21 @@ class GenreSelection : Fragment() {
     private lateinit var confirmButton: Button
     private lateinit var mediumSelected: String
     lateinit var bookPasser: passOnData
+    lateinit var moviePasser: passOnData
+    lateinit var tvPasser: passOnData
+    private var callbacks: Callbacks? = null
+
+    interface Callbacks {
+        fun onGenreCreated(data: Book)
+        fun onGenreCreated(data: Movie)
+        fun onGenreCreated(data: TV)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         book = Book()
         movie = Movie()
         tv = TV()
-//        mediumSelected = ""
     }
 
     override fun onCreateView(
@@ -70,6 +78,7 @@ class GenreSelection : Fragment() {
             mediumSelected = it
         }
         bookPasser = context as passOnData
+        callbacks = context as Callbacks
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -147,6 +156,7 @@ class GenreSelection : Fragment() {
                 }
                 confirmButton.setOnClickListener {
                     passBook(book)
+                    callbacks?.onGenreCreated(book)
                 }
             }
             "movie" -> {
@@ -219,6 +229,10 @@ class GenreSelection : Fragment() {
                     movie.isAction = false
                     movie.isDrama = false
                 }
+                confirmButton.setOnClickListener {
+                    passMovie(movie)
+                    callbacks?.onGenreCreated(movie)
+                }
             }
             "tv" -> {
                 Toast.makeText(context, "Chose TV", Toast.LENGTH_LONG).show()
@@ -290,14 +304,31 @@ class GenreSelection : Fragment() {
                     tv.isAction = false
                     tv.isDrama = false
                 }
+                confirmButton.setOnClickListener {
+                    passTV(tv)
+                    callbacks?.onGenreCreated(tv)
+                }
             }
 
         }
     }
 
+    override fun onDetach() {
+        super.onDetach()
+        callbacks = null
+    }
+
     //Passes the instantized data to the interface
     fun passBook(data: Book) {
         bookPasser.bookPass(data)
+    }
+
+    fun passMovie(data: Movie) {
+        moviePasser.moviePass(data)
+    }
+
+    fun passTV(data: TV) {
+        tvPasser.tvPass(data)
     }
 
     companion object {

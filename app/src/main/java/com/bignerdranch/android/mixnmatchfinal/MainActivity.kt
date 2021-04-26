@@ -3,9 +3,11 @@ package com.bignerdranch.android.mixnmatchfinal
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
-class MainActivity : AppCompatActivity(), Medium_Selection.Callbacks, passOnData {
+class MainActivity : AppCompatActivity(), Medium_Selection.Callbacks, passOnData, GenreSelection.Callbacks {
 
     private lateinit var book : Book
+    private lateinit var movie: Movie
+    private lateinit var tv: TV
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,9 +54,45 @@ class MainActivity : AppCompatActivity(), Medium_Selection.Callbacks, passOnData
 
     }
 
+    override fun onGenreCreated(data: Book) {
+        val fragment = MediumListFragment.newInstance()
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.fragment_container, fragment)
+            .addToBackStack(null)
+            .commit()
+    }
+
+    override fun onGenreCreated(data: Movie) {
+        val fragment = MediumListFragment.newInstance()
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.fragment_container, fragment)
+            .addToBackStack(null)
+            .commit()
+    }
+
+    override fun onGenreCreated(data: TV) {
+        val fragment = MediumListFragment.newInstance()
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.fragment_container, fragment)
+            .addToBackStack(null)
+            .commit()
+    }
+
     //sets the book
     override fun bookPass(data: Book) {
         book = data
     }
+
+    override fun moviePass(data: Movie) {
+        movie = data
+    }
+
+    override fun tvPass(data: TV) {
+        tv = data
+    }
+
 
 }

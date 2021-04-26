@@ -23,6 +23,12 @@ class MediumListFragment : Fragment(){
         fun newInstance(): MediumListFragment {
             return MediumListFragment()
         }
+
+        fun newInstance(data: Book): MediumListFragment {
+            val args = Bundle().apply {
+
+            }
+        }
     }
 
     override fun onCreateView(
@@ -45,6 +51,7 @@ class MediumListFragment : Fragment(){
         val rateButton: Button = itemView.findViewById(R.id.rate_button)
         val confirmButton: Button = itemView.findViewById(R.id.confirm_button)
     }
+
 
 
 }
